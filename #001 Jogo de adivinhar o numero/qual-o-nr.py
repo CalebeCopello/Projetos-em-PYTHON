@@ -1,3 +1,13 @@
+#funções para colorir o texto
+def yt (msg):
+    return f'\033[0;33;40m{msg}\033[0;37;40m'
+def rt (msg):
+    return f'\033[0;31;40m{msg}\033[0;37;40m'
+def gt (msg):
+    return f'\033[0;32;40m{msg}\033[0;37;40m'
+
+
+#código principal
 #importanto a função do módulo
 from random import randint
 #gerando o número
@@ -6,24 +16,26 @@ nr = randint(1,10)
 t_nr = 0
 while True:
     t_nr +=1
+    #tratamento de erros
     while True:
         try:
-            print('Digite um número entre 1 e 10!')
+            print(f'Digite um número entre {yt(1)} e {yt(10)}!')
             p_nr = int(input('Qual é o número? '))
         except:
-            print('ERRO!: Digite um número válido')
+            print(f'{rt("ERRO!")}: Digite um número válido')
         else:
             if p_nr > 10:
-                print('Você digitou um número maior que 10, tente novamente!')
+                print(f'Você digitou um número {rt("maior que 10")}, tente novamente!')
             elif p_nr < 1:
-                print('Você digitou um número menor que 1, tente novamente!')
+                print(f'Você digitou um número {rt("menor que 1")}, tente novamente!')
             else:
                 break
+    #guiando o usuário
     if p_nr < nr:
-        print('Errou, tente um número mais alto!')
+        print(f'{rt("Errou")}, tente um número {rt("maior!")}')
     elif p_nr > nr:
-        print('Errou, tente um número mais baixo!')
+        print(f'{rt("Errou")}, tente um número {rt("menor!")}')
     else:
         break
-    
-print(f'Parabéns, você acertou!\nO computador pensou em: {nr}\nVocê tentou: {p_nr}\nVocê acertou depois de {t_nr} tentativas')
+#mensagem do resultado
+print(f'Parabéns, você {gt("acertou!")}\nO computador pensou em: {yt(nr)}\nVocê tentou: {yt(p_nr)}\nVocê acertou depois de {yt(t_nr)} tentativas')
