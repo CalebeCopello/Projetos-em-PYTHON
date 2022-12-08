@@ -1,6 +1,6 @@
 from random import randint
 #definindo variaveis
-palavras = ['agua', 'pao', 'carro', 'dado', 'fogueira']
+palavras = ['agua', 'pão', 'carro', 'dado', 'fogueira']
 pal_secreta = palavras[randint(0,len(palavras) - 1)]
 pal_dica = []
 tentativas = 5
@@ -38,6 +38,7 @@ while tentativas > 0:
         print('')
 #verificando se a letra está contida na palavra
 #DO TO colocar uma condição caso a letra ja tenha sido escolhida
+#DO TO ajustar para aceitar letras com acentos também
     if tentativa in pal_secreta:
         print(f'Parabéns a letra {tentativa} está na palavra, essa aparece na palavra {pal_secreta.count(tentativa)}')
         for c in range(0, len(pal_secreta)):
